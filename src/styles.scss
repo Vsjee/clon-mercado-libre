@@ -1,1 +1,74 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'ProximaNovaLight';
+  src: url('./assets/fonts/ProximaNovaLight.otf');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ProximaNovaRegular';
+  src: url('./assets/fonts/ProximaNovaRegular.otf');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ProximaNovaSemiBold';
+  src: url('./assets/fonts/ProximaNovaSemibold.otf');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --black: #333333;
+  --grey-header: #7e7839;
+  --grey-1: #bfbfbf;
+  --grey-2: #676767;
+  --grey-4: #ededed;
+  --white: #ffffff;
+  --blue: #4a81f2;
+  --yellow: #fdf173;
+  --bg: #ebebeb;
+  --green: #00a650;
+  --orange: #ee7f45;
+  --red: #ff7878;
+  --title-22ligth: 300 1.375rem / normal 'ProximaNovaLight';
+  --title-22semi-bold: 600 1.375rem/1.5rem 'ProximaNovaSemiBold';
+  --title-24regular: 400 1.5rem/1.5rem 'ProximaNovaRegular';
+  --title-32ligth: 300 2rem / normal 'ProximaNovaLight';
+  --title-36ligth: 300 2.25rem/2.25rem 'ProximaNovaLight';
+  --body-regular18: 400 1.125rem / normal 'ProximaNovaRegular';
+  --body-16regular: 400 1rem/1.25rem 'ProximaNovaRegular';
+  --body-16bold: 600 1rem/1.25rem 'ProximaNovaSemiBold';
+  --body-14regular: 400 0.875rem/1.125rem 'ProximaNovaRegular';
+  --body-14regular_u: 400 0.875rem/1.25rem 'ProximaNovaRegular';
+  --caption-12bold: 700 0.75rem/1rem 'Inter';
+  --caption-12regular: 400 0.75rem/1rem 'Inter';
+  --caption-12regular_u: 400 0.75rem/1.25rem 'Inter';
+}
+
+body {
+  font: var(--body-16regular);
+}
+
+h1 {
+  color: var(--blue);
+  font: var(--title-36ligth);
+}
+
+h2 {
+  color: var(--orange);
+  font: var(--title-32ligth);
+}
+
+p {
+  color: var(--green);
+  font: var(--title-22ligth);
+}

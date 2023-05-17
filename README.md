@@ -1,27 +1,41 @@
-# ClonMercadoLibre
+<div align="center">
+<img width="120px"  src="https://raw.githubusercontent.com/no-te-rindas/logo/main/Logo/LeonidasEsteban-destello-envolvente-cuadrada.png" />
+</div>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
+#  Tienda Libre
+Encuentra los mejores productos y pídelos al instante con Tienda Libre. Diviértete implementando este genial proyecto de E-commerce.
 
-## Development server
+## Requerimentos
+Estilo libre. Lleva el diseño al código utilizando tu framework favorito, o con HTML y CSS, no hay ninguna limitación.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Añade información real 
+- Aplica efectos y transiciones a tu gusto
+- Aplica el pago con Paypal soliciando el monto de acuerdo al total de tu carrito
+- Sube tu código a GitHub
+- Publica tu resultado con github pages
+- Mándalo a revisión desde tu [perfil](https://leonidasesteban.com/estudiante)
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Desktop
 
-## Build
+<img width="400px"  src="https://raw.githubusercontent.com/uxcristopher/imagenes/main/Readmes/Tienda%20Libre/%F0%9F%96%A5-Desktop.jpg" />
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Mobile
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<img width="400px" src="https://raw.githubusercontent.com/uxcristopher/imagenes/main/Readmes/Tienda%20Libre/%F0%9F%93%B1-Mobile.jpg" />
 
-## Running end-to-end tests
+## Disclaimer
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Todas son propuestas, el propósito de **/Proyectos** es brindarte el diseño, el límite de la creación lo dictan tus ganas de hacerlo realidad y tu skills del momento a la hora de codear.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Revisión
+
+Recuerda mandar tu proyecto a revisión, si aún no conoces como funciona el proceso de revisión lee este post: [Como usar proyectos en 3 pasos](https://leonidasesteban.com/blog/como-usar-proyectos-en-3-pasos)
+
+## Créditos
+
+Encuentra más proyectos asombrosos en [/Proyectos](https://leonidasesteban.com/proyectos)
+
+Diseñado con ♥️ en leonidasesteban.com

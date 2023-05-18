@@ -1,2 +1,68 @@
 <app-menu></app-menu>
-<p>home works!</p>
+<app-banner></app-banner>
+<main class="main">
+  <!-- CONTENIDO -->
+  <section class="payment">
+    <article class="payment__description">
+      <p class="payment__text">Paga cómodo y seguro</p>
+      <p class="paymente__legend">con Tienda Libre</p>
+    </article>
+    <div class="separator"></div>
+    <article class="payment__description">
+      <p class="payment__text">Hasta 3 meses sin intereses con:</p>
+      <p class="paymente__legend paymente__legend--link">Ver condiciones</p>
+    </article>
+    <div class="separator"></div>
+    <picture class="payment__picture">
+      <img
+        src="../../../../assets/citibanamex-logo.png"
+        alt="Logo Banco"
+        class="payment__img"
+      />
+    </picture>
+  </section>
+
+  <section class="visited">
+    <div class="visited__header">
+      <h2 class="visited__title">Basado en tu última visita</h2>
+      <span class="visited__link">Ver historial</span>
+    </div>
+    <div class="visited__card">
+      <app-card-product></app-card-product>
+      <app-card-product></app-card-product>
+      <app-card-product></app-card-product>
+      <app-card-product></app-card-product>
+      <app-card-product></app-card-product>
+    </div>
+  </section>
+
+  <section class="visited">
+    <div class="visited__header">
+      <h2 class="visited__title">
+        Relacionado con tus visitas en Compuatación
+      </h2>
+      <span class="visited__link">Ver historial</span>
+    </div>
+    <div class="visited__card">
+      <app-card-product></app-card-product>
+      <app-card-product></app-card-product>
+      <app-card-product></app-card-product>
+      <app-card-product></app-card-product>
+      <app-card-product></app-card-product>
+    </div>
+  </section>
+
+  <section class="visited">
+    <div class="visited__header">
+      <h2 class="visited__title">Ofertas</h2>
+      <span class="visited__link">Ver historial</span>
+    </div>
+    <div class="visited__card">
+      <app-card-product></app-card-product>
+      <app-card-product></app-card-product>
+      <app-card-product></app-card-product>
+      <app-card-product></app-card-product>
+      <app-card-product></app-card-product>
+    </div>
+  </section>
+</main>

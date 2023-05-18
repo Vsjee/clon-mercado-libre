@@ -11,7 +11,7 @@
   display: flex;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
+  background-color: var(--black);
   padding: 0 17px;
   position: relative;
 }
@@ -23,7 +23,7 @@
   border: 0 solid transparent;
   border-right-width: 14px;
   border-left-width: 14px;
-  border-bottom: 14px solid #333;
+  border-bottom: 14px solid var(--black);
   top: -8px;
   left: 76%;
   position: absolute;

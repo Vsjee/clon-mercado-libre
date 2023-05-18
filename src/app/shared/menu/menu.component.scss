@@ -1,6 +1,148 @@
 .menu {
   width: 100%;
-  height: 100px;
+  height: 122px;
   background-color: var(--yellow);
-  padding: 0 20px;
+  padding: 12px 40px;
+  overflow: hidden;
+  position: relative;
+  z-index: 9910;
+}
+
+.sup,
+.list {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 70px;
+  margin: auto;
+}
+
+.sup__picture {
+  text-align: left;
+  width: 170px;
+  height: 60px;
+
+  .sup__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.sup__search {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  height: 40px;
+  width: 600px;
+  padding: 10px 60px 10px 15px;
+  border: 1.5px solid rgba(0, 0, 0, 0);
+  background-color: var(--white);
+
+  .sup__input {
+    width: 98%;
+    outline: none;
+    border: none;
+    font-family: inherit;
+  }
+
+  .sup__input::placeholder {
+    color: var(--grey-1);
+  }
+
+  .divisor {
+    border-left: 2px solid var(--grey-1);
+    vertical-align: top;
+    height: 22px;
+  }
+
+  .icon-tabler-search {
+    position: absolute;
+    right: 10px;
+    color: var(--grey-1);
+  }
+}
+
+/* SEGUNDO NIVEL */
+
+.list {
+  margin-top: 6px;
+}
+
+.location {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  width: 170px;
+
+  .icon-tabler-map-pin {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.location__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  .location__legend {
+    font: var(--body-14regular);
+    color: var(--grey-2);
+  }
+
+  .location__btn {
+    border: none;
+    background-color: transparent;
+    color: var(--black);
+    font: var(--body-14regula);
+    cursor: pointer;
+  }
+}
+
+.nav__list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 35px;
+  list-style: none;
+
+  .nav__category {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+
+    .icon-tabler-chevron-down {
+      width: 20px;
+    }
+  }
+
+  .nav__item {
+    font: var(--body-14regular);
+    color: var(--grey-2);
+    cursor: pointer;
+  }
+
+  .nav__item:hover {
+    color: var(--black);
+  }
+}
+
+.nav__shop {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background-color: transparent;
+
+  .icon-tabler-shopping-cart {
+    width: 20px;
+  }
 }

@@ -1,0 +1,44 @@
+<div class="category" (mouseleave)="closePopup()">
+  <ul class="category__list">
+    <button
+      class="category__item"
+      *ngFor="let category of categorys"
+      (mouseenter)="visibleDetail = false"
+    >
+      <span> {{ category.name }}</span>
+      <svg
+        *ngIf="category?.child"
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-chevron-right"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        (mouseenter)="activateDetail(category)"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M9 6l6 6l-6 6"></path>
+      </svg>
+    </button>
+  </ul>
+  <section
+    *ngIf="visibleDetail"
+    class="detail"
+    (mouseleave)="visibleDetail = false"
+  >
+    <h2 class="detail__name">{{ detailItem }}</h2>
+    <div class="line"></div>
+    <div class="detail__section">
+      <article class="detail__article" *ngFor="let detail of details">
+        <h4 class="detail__title">{{ detail.title }}</h4>
+        <p class="detail__items" *ngFor="let item of detail.items">
+          {{ item }}
+        </p>
+      </article>
+    </div>
+  </section>
+</div>

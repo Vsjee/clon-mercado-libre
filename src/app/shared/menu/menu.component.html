@@ -1,3 +1,117 @@
-<header class="menu">
-
+<header class="menu" (mouseenter)="visibleCategory = false">
+  <ng-container [ngTemplateOutlet]="search"></ng-container>
+  <ng-container [ngTemplateOutlet]="products"></ng-container>
 </header>
+
+<ng-template #search>
+  <div class="sup" (mouseenter)="visibleCategory = false">
+    <picture class="sup__picture">
+      <img src="../../../assets/logo.png" alt="logo" class="sup__img" />
+    </picture>
+    <div class="sup__search">
+      <input
+        type="text"
+        class="sup__input"
+        placeholder="Buscar productos, marcas y más..."
+      />
+      <div class="divisor"></div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-search"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+        <path d="M21 21l-6 -6"></path>
+      </svg>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #products>
+  <div class="list" (mouseenter)="visibleCategory = false">
+    <div class="location">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-map-pin"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
+        <path
+          d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"
+        ></path>
+      </svg>
+      <div class="location__description">
+        <p class="location__legend">Ingrese su ubicación</p>
+        <button class="location__btn">Dirección</button>
+      </div>
+    </div>
+
+    <nav class="nav" (mouseenter)="visibleCategory = false">
+      <ul class="nav__list">
+        <li
+          class="nav__item nav__category"
+          (mouseenter)="visibleCategory = true"
+        >
+          <span>Cátegorias</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-chevron-down"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M6 9l6 6l6 -6"></path>
+          </svg>
+        </li>
+        <li *ngFor="let menu of menuList" class="nav__item">{{ menu.name }}</li>
+        <button class="nav__item nav__shop">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-shopping-cart"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+            <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+            <path d="M17 17h-11v-14h-2"></path>
+            <path d="M6 5l14 1l-1 7h-13"></path>
+          </svg>
+          <span>Carrito</span>
+        </button>
+      </ul>
+    </nav>
+  </div>
+</ng-template>
+
+<div class="backdrop" *ngIf="visibleCategory">
+  <app-category-menu (closeModal)="closeModal()"></app-category-menu>
+</div>

@@ -6,7 +6,9 @@
 <ng-template #search>
   <div class="sup" (mouseenter)="visibleCategory = false">
     <picture class="sup__picture">
-      <img src="../../../assets/logo.png" alt="logo" class="sup__img" />
+      <a routerLink="home">
+        <img src="../../../assets/logo.png" alt="logo" class="sup__img" />
+      </a>
     </picture>
     <div class="sup__search">
       <input
@@ -85,28 +87,43 @@
             <path d="M6 9l6 6l6 -6"></path>
           </svg>
         </li>
-        <li *ngFor="let menu of menuList" class="nav__item">{{ menu.name }}</li>
-        <button class="nav__item nav__shop">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="icon icon-tabler icon-tabler-shopping-cart"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+        <li *ngFor="let menu of menuList" class="nav__item">
+          <a
+            [routerLink]="menu.route"
+            *ngIf="menu.route !== 'categoria'"
+            class="item__link"
+            >{{ menu.name }}</a
           >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
-            <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
-            <path d="M17 17h-11v-14h-2"></path>
-            <path d="M6 5l14 1l-1 7h-13"></path>
-          </svg>
-          <span>Carrito</span>
-        </button>
+          <a
+            [routerLink]="menu.route + '/' + menu.name"
+            *ngIf="menu.route === 'categoria'"
+            class="item__link"
+            >{{ menu.name }}</a
+          >
+        </li>
+        <a routerLink="carrito" class="cart__link">
+          <button class="nav__item nav__shop">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-shopping-cart"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+              <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+              <path d="M17 17h-11v-14h-2"></path>
+              <path d="M6 5l14 1l-1 7h-13"></path>
+            </svg>
+            <span>Carrito</span>
+          </button>
+        </a>
       </ul>
     </nav>
   </div>

@@ -5,6 +5,7 @@ export interface MenuList {
 
 export interface Category {
   name: string
+  route: string
   child?: boolean
   detail?: DetailCategory[]
 }

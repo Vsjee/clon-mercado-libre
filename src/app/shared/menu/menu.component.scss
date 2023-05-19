@@ -125,24 +125,42 @@
 
   .nav__item {
     font: var(--body-14regular);
-    color: var(--grey-2);
     cursor: pointer;
-  }
 
-  .nav__item:hover {
-    color: var(--black);
+    .item__link {
+      text-decoration: none;
+      color: var(--grey-2);
+
+      &:hover {
+        color: var(--black);
+      }
+    }
   }
 }
 
-.nav__shop {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 8px;
-  border: none;
-  background-color: transparent;
+.cart__link {
+  text-decoration: none;
 
-  .icon-tabler-shopping-cart {
-    width: 20px;
+  &:hover {
+    span {
+      color: var(--grey-2);
+    }
+
+    svg {
+      color: var(--grey-2);
+    }
+  }
+
+  .nav__shop {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    background-color: transparent;
+
+    .icon-tabler-shopping-cart {
+      width: 20px;
+    }
   }
 }

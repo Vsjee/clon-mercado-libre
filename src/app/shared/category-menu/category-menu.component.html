@@ -5,7 +5,9 @@
       *ngFor="let category of categorys"
       (mouseenter)="visibleDetail = false"
     >
-      <span> {{ category.name }}</span>
+      <a [routerLink]="category.route + '/' + category.name" class="item__link">
+        <span> {{ category.name }}</span>
+      </a>
       <svg
         *ngIf="category?.child"
         xmlns="http://www.w3.org/2000/svg"

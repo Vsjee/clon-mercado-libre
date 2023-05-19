@@ -38,7 +38,6 @@
 
   .category__item {
     padding: 12px;
-    color: var(--grey-1);
     font: var(--body-14regular);
     background-color: transparent;
     border: none;
@@ -47,10 +46,15 @@
     align-items: center;
     width: 100%;
     cursor: pointer;
-  }
 
-  .category__item:hover {
-    color: var(--white);
+    .item__link {
+      text-decoration: none;
+      color: var(--grey-1);
+
+      &:hover {
+        color: var(--white);
+      }
+    }
   }
 
   .icon-tabler-chevron-right {

@@ -1,47 +1,53 @@
-import { Component } from '@angular/core'
-import { CommonModule } from '@angular/common'
-import { RouterModule } from '@angular/router'
-import { MenuList } from '../../interfaces/menu.interface'
-import { CategoryMenuComponent } from '../category-menu/category-menu.component'
+import { Component } from "@angular/core"
+import { CommonModule } from "@angular/common"
+import { RouterModule } from "@angular/router"
+import { MenuList } from "../../interfaces/menu.interface"
+import { CategoryMenuComponent } from "../category-menu/category-menu.component"
+import { TiendaLibreRoutingModule } from "src/app/tienda-libre/tienda-libre-routing.module"
 
 @Component({
-  selector: 'app-menu',
+  selector: "app-menu",
   standalone: true,
-  imports: [CommonModule, RouterModule, CategoryMenuComponent],
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  imports: [
+    CommonModule,
+    RouterModule,
+    CategoryMenuComponent,
+    TiendaLibreRoutingModule
+  ],
+  templateUrl: "./menu.component.html",
+  styleUrls: ["./menu.component.scss"]
 })
 export class MenuComponent {
   menuList: MenuList[] = [
     {
-      name: 'Ofertas',
-      route: ''
+      name: "Ofertas",
+      route: "ofertas"
     },
     {
-      name: 'Historial',
-      route: ''
+      name: "Historial",
+      route: "historial"
     },
     {
-      name: 'Supermercado',
-      route: ''
+      name: "Supermercado",
+      route: "categoria"
     },
     {
-      name: 'Moda',
-      route: ''
+      name: "Moda",
+      route: "categoria"
     },
     {
-      name: 'Vender',
-      route: ''
+      name: "Vender",
+      route: "vender"
     },
     {
-      name: 'Ayuda',
-      route: ''
+      name: "Ayuda",
+      route: "ayuda"
     }
   ]
 
   visibleCategory: boolean = false
 
   closeModal(): void {
-    this.visibleCategory = false;
+    this.visibleCategory = false
   }
 }

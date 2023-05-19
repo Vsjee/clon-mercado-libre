@@ -3,7 +3,7 @@ import { RouterModule, Routes } from "@angular/router"
 
 const routes: Routes = [
   {
-    path: "home",
+    path: "",
     loadChildren: () =>
       import("./tienda-libre/tienda-libre.module").then(
         (m) => m.TiendaLibreModule
@@ -11,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: "**",
-    redirectTo: "home",
+    redirectTo: "",
     pathMatch: "full"
   }
 ]

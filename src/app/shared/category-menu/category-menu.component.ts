@@ -1,24 +1,28 @@
 import { Component, EventEmitter, OnInit, Output } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { Category, DetailCategory } from "../../interfaces/menu.interface"
+import { TiendaLibreRoutingModule } from "src/app/tienda-libre/tienda-libre-routing.module"
 
 @Component({
   selector: "app-category-menu",
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TiendaLibreRoutingModule],
   templateUrl: "./category-menu.component.html",
   styleUrls: ["./category-menu.component.scss"]
 })
 export class CategoryMenuComponent {
   categorys: Category[] = [
     {
-      name: "Vehículos"
+      name: "Vehículos",
+      route: "categoria"
     },
     {
-      name: "Supermercado"
+      name: "Supermercado",
+      route: "categoria"
     },
     {
       name: "Tecnología",
+      route: "categoria",
       child: true,
       detail: [
         {
@@ -50,22 +54,28 @@ export class CategoryMenuComponent {
       ]
     },
     {
-      name: "Electrodomésticos"
+      name: "Electrodomésticos",
+      route: "categoria"
     },
     {
-      name: "Hogar y Muebles"
+      name: "Hogar y Muebles",
+      route: "categoria"
     },
     {
-      name: "Moda"
+      name: "Moda",
+      route: "categoria"
     },
     {
-      name: "Deportes y Fitness"
+      name: "Deportes y Fitness",
+      route: "categoria"
     },
     {
-      name: "Herramientas"
+      name: "Herramientas",
+      route: "categoria"
     },
     {
-      name: "Construcción"
+      name: "Construcción",
+      route: "categoria"
     }
   ]
 

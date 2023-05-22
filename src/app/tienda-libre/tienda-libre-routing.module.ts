@@ -7,6 +7,7 @@ import { CategorieComponent } from "./pages/categorie/categorie.component"
 import { SellOnThePlatformComponent } from "./pages/sell-on-the-platform/sell-on-the-platform.component"
 import { SupportComponent } from "./pages/support/support.component"
 import { ShoppingCartComponent } from "./pages/shopping-cart/shopping-cart.component"
+import { ProductComponent } from "./pages/categorie/pages/product/product.component"
 
 const routes: Routes = [
   {
@@ -26,7 +27,20 @@ const routes: Routes = [
       },
       {
         path: "categoria/:tipo",
-        component: CategorieComponent
+        children: [
+          {
+            path: "",
+            component: CategorieComponent
+          },
+          {
+            path: ":producto",
+            component: ProductComponent
+          },
+          {
+            path: "**",
+            redirectTo: ""
+          }
+        ]
       },
       {
         path: "vender",

@@ -1,0 +1,32 @@
+.drop {
+  width: 100%;
+  height: 60px;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--grey-1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.drop__name {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+
+  .drop__img {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+  }
+
+  .drop__title {
+    font: var(--body-14regular);
+  }
+}
+
+.drop__arrowDown {
+  filter: var(--filter-blue);
+}

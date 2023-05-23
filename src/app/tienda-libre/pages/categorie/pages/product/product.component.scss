@@ -80,7 +80,7 @@
   margin-left: 5px;
   display: flex;
   flex-direction: column;
-  gap: 10rem;
+  gap: 2rem;
   margin: auto;
 
   .info__data {
@@ -123,8 +123,7 @@
     cursor: pointer;
 
     &:hover picture img {
-      filter: invert(34%) sepia(78%) saturate(7490%) hue-rotate(218deg)
-        brightness(99%) contrast(110%);
+      filter: var(--filter-blue);
     }
   }
 
@@ -162,6 +161,7 @@
     .right__modelText {
       color: var(--black);
       font: var(--body-14regular);
+      margin-bottom: 5px;
     }
   }
 

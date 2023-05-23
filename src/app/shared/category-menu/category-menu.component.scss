@@ -59,7 +59,12 @@
 
   .icon-tabler-chevron-right {
     width: 17px;
+    color: var(--grey-1);
     cursor: pointer;
+
+    &:hover {
+      color: var(--white);
+    }
   }
 }
 

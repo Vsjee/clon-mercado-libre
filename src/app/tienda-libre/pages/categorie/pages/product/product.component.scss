@@ -2,8 +2,8 @@
   // background-color: rgba(102, 51, 153, 0.342);
   display: block;
   margin: 0 auto;
-  padding: 2rem 0 2rem 0;
-  width: 75%;
+  padding: 2rem 0 0;
+  width: 90%;
 
   .product__nav {
     font-size: 0.8rem;
@@ -35,13 +35,12 @@
 
 .producto__info {
   display: grid;
-  grid-template-columns: 2fr 0.8fr;
+  grid-template-columns: 1fr 0.8fr;
   margin-top: 10px;
   padding: 10px;
 }
 
 .info__left {
-  // background: rebeccapurple;
   width: 100%;
 
   .left__carousel {
@@ -76,12 +75,13 @@
 .info__right {
   position: relative;
   // background: rgb(0, 0, 0);
-  width: 100%;
+  width: 65%;
   padding: 10px;
   margin-left: 5px;
   display: flex;
   flex-direction: column;
   gap: 10rem;
+  margin: auto;
 
   .info__data {
     display: flex;
@@ -89,7 +89,8 @@
     gap: 0.6rem;
     .right__calification,
     .right__taxes,
-    .right__sells {
+    .right__sells,
+    .right__taxes__iva {
       color: var(--grey-2);
     }
 
@@ -98,8 +99,18 @@
     }
 
     .right__calification,
-    .right__taxes {
+    .right__taxes,
+    .right__taxes__iva {
       font-size: 0.9rem;
+    }
+
+    .right__taxes span {
+      color: var(--green);
+    }
+
+    .right__taxes__iva {
+      color: var(--black);
+      font: var(--body-14regula);
     }
   }
 
@@ -114,6 +125,43 @@
     &:hover picture img {
       filter: invert(34%) sepia(78%) saturate(7490%) hue-rotate(218deg)
         brightness(99%) contrast(110%);
+    }
+  }
+
+  .right__offer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+
+    .right__text {
+      padding: 3px;
+      background-color: var(--orange);
+      border-radius: 4px;
+      color: var(--white);
+      font-size: var(--title-22ligth);
+    }
+
+    .right__legend {
+      font: var(--body-14regular);
+      color: var(--blue-dark);
+    }
+  }
+  h2,
+  h2 > span {
+    color: var(--black);
+  }
+
+  .right__model {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    .right__modelText {
+      color: var(--black);
+      font: var(--body-14regular);
     }
   }
 

@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core"
+import { Router } from "@angular/router"
 
 @Component({
-  selector: 'app-card-product',
-  templateUrl: './card-product.component.html',
-  styleUrls: ['./card-product.component.scss']
+  selector: "app-card-product",
+  templateUrl: "./card-product.component.html",
+  styleUrls: ["./card-product.component.scss"],
 })
 export class CardProductComponent {
+  constructor(private router: Router) {}
 
-  constructor() { }
-
+  detailProduct(): void {
+    this.router.navigate(["/categoria/Construcción/d"])
+  }
 }

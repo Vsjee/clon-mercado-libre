@@ -3,11 +3,32 @@
 
   .rating__header {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
 
     .header__rate {
+      position: relative;
       color: var(--blue);
       font-weight: bold;
+
+      .rate__total {
+        position: absolute;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .bars {
+    display: grid;
+    gap: 0.8rem;
+    margin-top: 1rem;
+
+    .bars__rate {
+      display: flex;
+      gap: 1rem;
+
+      mat-progress-bar {
+        height: 15px;
+      }
     }
   }
 }

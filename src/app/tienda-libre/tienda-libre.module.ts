@@ -12,6 +12,8 @@ import { MatTabsModule } from "@angular/material/tabs"
 import { ReviewComponent } from "./pages/categorie/pages/components/review/review.component"
 import { RatingComponent } from "./pages/categorie/pages/components/rating/rating.component"
 
+import { MatProgressBarModule } from "@angular/material/progress-bar"
+
 @NgModule({
   declarations: [HomeComponent, ProductComponent],
   imports: [
@@ -22,6 +24,7 @@ import { RatingComponent } from "./pages/categorie/pages/components/rating/ratin
     ReviewComponent,
     RatingComponent,
     MatTabsModule,
+    MatProgressBarModule,
   ],
   exports: [HomeComponent],
 })

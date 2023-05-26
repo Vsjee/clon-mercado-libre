@@ -84,7 +84,9 @@
 
   <!-- product reviews -->
   <section class="reviews">
-    <h3 class="reviews__title">Opiniones del producto</h3>
+    <h3 class="reviews__title">
+      Opiniones del producto ({{ reviews.length }})
+    </h3>
     <div class="reviews__col">
       <article class="reviews__left">
         <app-rating [review]="reviews"></app-rating>

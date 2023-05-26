@@ -9,3 +9,9 @@ export interface IReview {
 export interface IRate {
   rate: number
 }
+
+export interface IBarRate {
+  rateNumber: number
+  starsNumber: number
+  percentage: number
+}

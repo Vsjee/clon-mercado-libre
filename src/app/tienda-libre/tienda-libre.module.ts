@@ -5,8 +5,12 @@ import { ComponentsModule } from "./components/components.module"
 import { MenuComponent } from "../shared/menu/menu.component"
 import { TiendaLibreRoutingModule } from "./tienda-libre-routing.module"
 
-import { HomeComponent } from "./pages/home/home.component";
-import { ProductComponent } from './pages/categorie/pages/product/product.component'
+import { HomeComponent } from "./pages/home/home.component"
+import { ProductComponent } from "./pages/categorie/pages/product/product.component"
+
+import { MatTabsModule } from "@angular/material/tabs"
+import { ReviewComponent } from "./pages/categorie/pages/components/review/review.component"
+import { RatingComponent } from "./pages/categorie/pages/components/rating/rating.component"
 
 @NgModule({
   declarations: [HomeComponent, ProductComponent],
@@ -14,8 +18,11 @@ import { ProductComponent } from './pages/categorie/pages/product/product.compon
     CommonModule,
     ComponentsModule,
     MenuComponent,
-    TiendaLibreRoutingModule
+    TiendaLibreRoutingModule,
+    ReviewComponent,
+    RatingComponent,
+    MatTabsModule,
   ],
-  exports: [HomeComponent]
+  exports: [HomeComponent],
 })
 export class TiendaLibreModule {}

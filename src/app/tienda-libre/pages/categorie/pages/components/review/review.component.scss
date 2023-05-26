@@ -1,0 +1,27 @@
+.review {
+  display: grid;
+  background-color: var(--grey-4);
+  margin: 15px 5px;
+  padding: 12px 20px;
+  border-radius: 15px;
+  border: 2px solid var(--grey-3);
+  gap: 1rem;
+
+  .review__header {
+    display: flex;
+
+    .review__user {
+      font-weight: var(--title-22ligth);
+      padding-right: 5px;
+    }
+
+    .rate {
+      display: inline-flex;
+    }
+  }
+
+  .review__content {
+    color: var(--grey-2);
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,13 @@
+.rating {
+  padding: 10px 8%;
+
+  .rating__header {
+    display: flex;
+    gap: 1rem;
+
+    .header__rate {
+      color: var(--blue);
+      font-weight: bold;
+    }
+  }
+}

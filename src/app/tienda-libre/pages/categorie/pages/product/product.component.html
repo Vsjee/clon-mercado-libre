@@ -51,7 +51,9 @@
 
         <div class="right__model">
           <p class="right__modelText">Modelo compatible:</p>
-          <app-dropdown-model [ngStyle]="{'width': '100%'}" ></app-dropdown-model>
+          <app-dropdown-model
+            [ngStyle]="{ width: '100%' }"
+          ></app-dropdown-model>
         </div>
       </div>
       <div class="right__btns">
@@ -60,4 +62,58 @@
       </div>
     </article>
   </section>
+
+  <!-- product description -->
+  <section class="description">
+    <h3 class="description__title">Descripción</h3>
+    <p class="description__content">
+      GRANDES SUPERFICIES @gs
+      <br />
+      <br />
+      MOUSE GAMER EXTRA LARGO 785MM X 300MM X 3MM
+      <br />
+      <br />
+      Alta durabilidad: bordes reforzados para evitar deformaciones o daños,
+      superficie resistente a líquidos y base antideslizante.
+      <br />
+      <br />
+      Material: Tela de malla fina para gamer. Deslizamientos rápidos de alta
+      precisión con confianza y consistencia.
+    </p>
+  </section>
+
+  <!-- product reviews -->
+  <section class="reviews">
+    <h3 class="reviews__title">Opiniones del producto</h3>
+    <div class="reviews__col">
+      <article class="reviews__left">
+        <app-rating [review]="reviews"></app-rating>
+      </article>
+      <article class="reviews__right">
+        <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+          <mat-tab label="Todas">
+            <app-review
+              *ngFor="let review of reviews"
+              [review]="review"
+            ></app-review>
+          </mat-tab>
+          <mat-tab label="Positivas">
+            <app-review
+              *ngFor="let review of positiveReviews"
+              [review]="review"
+            ></app-review>
+          </mat-tab>
+          <mat-tab label="Negativas">
+            <app-review
+              *ngFor="let review of negativeReviews"
+              [review]="review"
+            ></app-review>
+          </mat-tab>
+        </mat-tab-group>
+      </article>
+    </div>
+  </section>
+
+  <!-- similar products -->
+  <section class="similar"></section>
 </section>

@@ -5,3 +5,7 @@ export interface IReview {
   date: Date | string
   rating: number
 }
+
+export interface IRate {
+  rate: number
+}

@@ -59,8 +59,6 @@ export class ReviewsService {
     },
   ]
 
-  constructor() {}
-
   get allReviews(): IReview[] {
     return this.reviews
   }

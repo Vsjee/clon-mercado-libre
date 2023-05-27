@@ -8,20 +8,12 @@
       <div class="left__carousel">
         <div class="carousel__picker">
           <picture>
-            <img
-              src="https://falabella.scene7.com/is/image/FalabellaCO/55466201_1"
-              alt="product"
-              class="image--select"
-            />
+            <img [src]="product.image" alt="product" class="image--select" />
           </picture>
         </div>
         <div class="carousel__image">
           <picture>
-            <img
-              src="https://falabella.scene7.com/is/image/FalabellaCO/55466201_1"
-              alt="product"
-              class="image--select"
-            />
+            <img [src]="product.image" alt="product" class="image--select" />
           </picture>
         </div>
       </div>
@@ -36,22 +28,27 @@
         </picture>
       </button>
       <div class="info__data">
-        <p class="right__sells">Nuevo | +2000 vendidos</p>
-        <h3>Pad Mouse Diferentes Motivos</h3>
-        <p class="right__calification">⭐⭐⭐⭐⭐ (183) opiniones</p>
+        <p class="right__sells">Nuevo | +{{ product.rating.count }} vendidos</p>
+        <h3>{{ product.title }}</h3>
+        <p class="right__calification">
+          ⭐⭐⭐⭐⭐ ({{ reviews.length }}) opiniones
+        </p>
 
         <div class="right__offer">
           <span class="right__text">MAS VENDIDO</span>
           <span class="right__legend">3° en Tenis para Deportes</span>
         </div>
 
-        <h2>$<span>18.99</span></h2>
+        <h2>
+          $<span>{{ product.price }}</span>
+        </h2>
         <p class="right__taxes">en <span> 12x $2.8 sin interes </span></p>
         <p class="right__taxes__iva">IVA incluido</p>
 
         <div class="right__model">
           <p class="right__modelText">Modelo compatible:</p>
           <app-dropdown-model
+            [info]="product"
             [ngStyle]="{ width: '100%' }"
           ></app-dropdown-model>
         </div>
@@ -67,18 +64,7 @@
   <section class="description">
     <h3 class="description__title">Descripción</h3>
     <p class="description__content">
-      GRANDES SUPERFICIES @gs
-      <br />
-      <br />
-      MOUSE GAMER EXTRA LARGO 785MM X 300MM X 3MM
-      <br />
-      <br />
-      Alta durabilidad: bordes reforzados para evitar deformaciones o daños,
-      superficie resistente a líquidos y base antideslizante.
-      <br />
-      <br />
-      Material: Tela de malla fina para gamer. Deslizamientos rápidos de alta
-      precisión con confianza y consistencia.
+      {{ product.description }}
     </p>
   </section>
 

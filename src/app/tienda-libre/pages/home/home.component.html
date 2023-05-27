@@ -21,25 +21,22 @@
     </picture>
   </section>
 
-  <section class="visited">
+  <section class="visited" *ngFor="let categorie of categories">
     <div class="visited__header">
-      <h2 class="visited__title">Basado en tu última visita</h2>
+      <h2 class="visited__title">{{ categorie }}</h2>
       <span class="visited__link">Ver historial</span>
     </div>
     <div class="visited__card">
-      <app-card-product></app-card-product>
-      <app-card-product></app-card-product>
-      <app-card-product></app-card-product>
-      <app-card-product></app-card-product>
-      <app-card-product></app-card-product>
+      <app-card-product
+        *ngFor="let product of productsByCategory(categorie)"
+        [product]="product"
+      ></app-card-product>
     </div>
   </section>
 
   <section class="visited">
     <div class="visited__header">
-      <h2 class="visited__title">
-        Relacionado con tus visitas en Computación
-      </h2>
+      <h2 class="visited__title">Basado en tu última visita</h2>
       <span class="visited__link">Ver historial</span>
     </div>
     <div class="visited__card">

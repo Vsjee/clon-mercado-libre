@@ -1,12 +1,14 @@
 <div class="card" (click)="detailProduct()">
+  <img [src]="product.image" alt="" class="card__img" *ngIf="product?.image" />
   <img
     src="https://falabella.scene7.com/is/image/FalabellaCO/55466201_1"
     alt=""
     class="card__img"
+    *ngIf="!product?.image"
   />
   <div class="card__information">
     <div class="card__money">
-      <span class="card__price">$ 226</span>
+      <span class="card__price">$ {{ product.price }}</span>
       <span class="card__cuota">18% OFF</span>
     </div>
     <span class="card__total">12x $18.88 sin interés</span>

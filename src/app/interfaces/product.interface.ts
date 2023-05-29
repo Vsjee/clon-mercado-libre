@@ -1,3 +1,17 @@
+export interface IProduct {
+  id: number
+  title: string
+  price: number
+  description: string
+  category: string
+  image: string
+  rating: {
+    rate: number
+    count: number
+  }
+  reviews?: IReview[]
+}
+
 export interface IReview {
   type: string
   user: string
@@ -8,4 +22,10 @@ export interface IReview {
 
 export interface IRate {
   rate: number
+}
+
+export interface IBarRate {
+  rateNumber: number
+  starsNumber: number
+  percentage: number
 }

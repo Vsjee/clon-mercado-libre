@@ -1,10 +1,34 @@
-import { Component } from '@angular/core'
+import { Component, OnInit, OnDestroy } from "@angular/core"
+import { IProduct } from "src/app/interfaces"
+import { ProductsService } from "src/app/services/products/products.service"
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.scss"],
 })
-export class HomeComponent {
-  constructor() {}
+export class HomeComponent implements OnInit, OnDestroy {
+  products: IProduct[] = []
+  categories = new Set()
+
+  constructor(private productService: ProductsService) {}
+
+  productsByCategory(category: string | unknown): IProduct[] {
+    let filteredByCategory = this.products.filter(
+      (item) => item.category === category
+    )
+
+    return filteredByCategory
+  }
+
+  ngOnInit(): void {
+    this.productService.products().subscribe((data) => {
+      this.products = data
+      data.forEach((item) => this.categories.add(item.category))
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.productService.products().subscribe().unsubscribe()
+  }
 }

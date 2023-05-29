@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core"
 import { BrowserModule } from "@angular/platform-browser"
+import { HttpClientModule } from "@angular/common/http"
 
 import { AppRoutingModule } from "./app-routing.module"
 import { TiendaLibreModule } from "./tienda-libre/tienda-libre.module"
@@ -16,6 +17,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
     TiendaLibreModule,
     MenuComponent,
     BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

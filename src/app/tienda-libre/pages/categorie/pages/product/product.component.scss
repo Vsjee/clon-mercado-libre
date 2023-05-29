@@ -37,7 +37,7 @@
   display: grid;
   grid-template-columns: 1fr 0.8fr;
   margin-top: 10px;
-  padding: 10px 20px;
+  padding: 45px 20px 0;
   background-color: var(--white);
   border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
   align-items: flex-start;
@@ -72,7 +72,7 @@
       picture .image--select {
         width: 100%;
         height: 400px;
-        object-fit: cover;
+        object-fit: contain;
       }
     }
   }
@@ -203,45 +203,13 @@
   }
 }
 
-<<<<<<< HEAD
-/* PRODUCT */
-
-.description {
-  margin-top: 30px;
-
-  .description__title {
-    font: var(--body-regular18);
-    color: var(--black);
-  }
-
-  .description__title--margin {
-    margin-bottom: 35px;
-  }
-
-  .description__product {
-    margin: 20px 0 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
-  }
-
-  .description__paragraph {
-    color: var(--grey-2);
-    font: var(--body-14regular);
-  }
-
-  .description__paragraph--margin{
-    margin-bottom: 25px;
-
-=======
 // product description
 .description {
-  width: 60%;
+  width: 100%;
   display: grid;
   gap: 1.2rem;
-  margin-bottom: 4rem;
+  background-color: var(--white);
+  padding: 40px 15px 4rem;
 
   .description__title {
     font-weight: var(--title-22ligth);
@@ -259,7 +227,9 @@
   display: grid;
   gap: 1.2rem;
   width: 100%;
+  padding: 0 15px;
   margin-bottom: 4rem;
+  background-color: var(--white);
 
   .reviews__title {
     font-weight: var(--title-22ligth);
@@ -284,6 +254,5 @@
     mat-tab-group {
       height: 500px;
     }
->>>>>>> b47183c6dbe8f16de825226fde5d72d351ffd8a3
   }
 }

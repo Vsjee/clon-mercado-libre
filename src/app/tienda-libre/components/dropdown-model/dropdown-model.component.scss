@@ -33,6 +33,7 @@
   justify-content: flex-start;
   align-items: center;
   gap: 6px;
+  overflow: hidden;
 
   .drop__img {
     display: inline-block;
@@ -41,6 +42,10 @@
   }
 
   .drop__title {
+    width: 70%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     font: var(--body-14regular);
   }
 }

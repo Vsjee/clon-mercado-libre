@@ -28,6 +28,6 @@ export class RatingComponent implements OnInit {
 
     //bars rating
     this.reviewRateGraph = this.reviewsService.starPercentage
-    console.log(this.reviewRateGraph)
+    // console.log(this.reviewRateGraph)
   }
 }

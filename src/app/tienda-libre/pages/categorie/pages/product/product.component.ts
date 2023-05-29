@@ -32,15 +32,17 @@ export class ProductComponent implements OnInit {
     })
   }
 
-  initProduct() {
-    this.productService.productById(this.productId).subscribe((item) => {
-      this.product = item
-    })
-  }
-
   ngOnInit(): void {
     this.reviews = this.reviewsService.allReviews
     this.positiveReviews = this.reviewsService.allPositiveReviews
     this.negativeReviews = this.reviewsService.allNegativeReviews
+
+    window.scrollTo(0, 0)
+  }
+
+  initProduct() {
+    this.productService.productById(this.productId).subscribe((item) => {
+      this.product = item
+    })
   }
 }

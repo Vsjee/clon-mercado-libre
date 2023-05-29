@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import { Component } from "@angular/core"
-=======
 import { Component, Input } from "@angular/core"
 import { IProduct } from "src/app/interfaces"
->>>>>>> b47183c6dbe8f16de825226fde5d72d351ffd8a3
 
 @Component({
   selector: "app-dropdown-model",
@@ -11,17 +7,12 @@ import { IProduct } from "src/app/interfaces"
   styleUrls: ["./dropdown-model.component.scss"],
 })
 export class DropdownModelComponent {
-<<<<<<< HEAD
-  visibleMenu: boolean = true
+  @Input() info!: IProduct
+  visibleMenu: boolean = false
 
   constructor() {}
 
   dropdownMenu(): void {
     this.visibleMenu = !this.visibleMenu
   }
-=======
-  @Input() info!: IProduct
-
-  constructor() {}
->>>>>>> b47183c6dbe8f16de825226fde5d72d351ffd8a3
 }

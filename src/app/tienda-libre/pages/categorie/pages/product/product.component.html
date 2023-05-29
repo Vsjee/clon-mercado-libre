@@ -17,10 +17,6 @@
           </picture>
         </div>
       </div>
-
-      <div class="left__content">
-        <ng-container [ngTemplateOutlet]="description"></ng-container>
-      </div>
     </article>
 
     <article class="info__right">
@@ -50,10 +46,7 @@
         <div class="right__model">
           <p class="right__modelText">Modelo compatible:</p>
           <app-dropdown-model
-<<<<<<< HEAD
-=======
             [info]="product"
->>>>>>> b47183c6dbe8f16de825226fde5d72d351ffd8a3
             [ngStyle]="{ width: '100%' }"
           ></app-dropdown-model>
         </div>
@@ -110,39 +103,3 @@
   <!-- similar products -->
   <section class="similar"></section>
 </section>
-
-<ng-template #description>
-  <section class="description">
-    <h2 class="description__title">Publicaciones del vendedor</h2>
-    <div class="description__product">
-      <app-card-product></app-card-product>
-      <app-card-product></app-card-product>
-      <app-card-product></app-card-product>
-    </div>
-  </section>
-
-  <section class="description">
-    <h2 class="description__title description__title--margin">Publicaciones del vendedor</h2>
-    <p class="description__paragraph description__paragraph--margin">TENIS PARA CORRER A DIARIO</p>
-    <p class="description__paragraph">
-      Cuando el running es tu deporte, no hay nada que te guste más que correr a
-      diario. Acumula kilómetros con total comodidad con estos tenis adidas en
-      tus pies. El exterior transpirable mantiene tus pies frescos y secos en
-      los días de calor y la amortiguación ligera hace que cada paso sea más
-      agradable.
-    </p>
-  </section>
-
-  <section class="description">
-    <h2 class="description__title description__title--margin">Opiniones sobre el producto</h2>
-    <!-- <p class="description__paragraph description__paragraph--margin">TENIS PARA CORRER A DIARIO</p>
-    <p class="description__paragraph">
-      Cuando el running es tu deporte, no hay nada que te guste más que correr a
-      diario. Acumula kilómetros con total comodidad con estos tenis adidas en
-      tus pies. El exterior transpirable mantiene tus pies frescos y secos en
-      los días de calor y la amortiguación ligera hace que cada paso sea más
-      agradable.
-    </p> -->
-    <app-rating [stars]="5" [value]="2"></app-rating>
-  </section>
-</ng-template>

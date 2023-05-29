@@ -16,6 +16,9 @@ export class CardProductComponent {
   detailProduct(): void {
     const category = this.product.category
     const id = this.product.id.toString()
+
+    console.log(category, id);
+
     this.router.navigate([`/categoria/${category}/${id}`])
   }
 }

@@ -21,44 +21,55 @@
     </picture>
   </section>
 
-  <section class="visited" *ngFor="let categorie of categories">
-    <div class="visited__header">
-      <h2 class="visited__title">{{ categorie }}</h2>
-      <span class="visited__link">Ver historial</span>
+  <span [ngSwitch]="loading">
+    <div *ngSwitchCase="true">
+      <app-loading class="loading"></app-loading>
     </div>
-    <div class="visited__card">
-      <app-card-product
-        *ngFor="let product of productsByCategory(categorie)"
-        [product]="product"
-      ></app-card-product>
+    <div *ngSwitchCase="false">
+      <ng-container [ngTemplateOutlet]="product"></ng-container>
     </div>
-  </section>
+  </span>
 
-  <section class="visited">
-    <div class="visited__header">
-      <h2 class="visited__title">Basado en tu última visita</h2>
-      <span class="visited__link">Ver historial</span>
-    </div>
-    <div class="visited__card">
-      <app-card-product></app-card-product>
-      <app-card-product></app-card-product>
-      <app-card-product></app-card-product>
-      <app-card-product></app-card-product>
-      <app-card-product></app-card-product>
-    </div>
-  </section>
+  <ng-template #product>
+    <section class="visited" *ngFor="let categorie of categories">
+      <div class="visited__header">
+        <h2 class="visited__title">{{ categorie }}</h2>
+        <span class="visited__link">Ver historial</span>
+      </div>
+      <div class="visited__card">
+        <app-card-product
+          *ngFor="let product of productsByCategory(categorie)"
+          [product]="product"
+        ></app-card-product>
+      </div>
+    </section>
 
-  <section class="visited">
-    <div class="visited__header">
-      <h2 class="visited__title">Ofertas</h2>
-      <span class="visited__link">Ver historial</span>
-    </div>
-    <div class="visited__card">
-      <app-card-product></app-card-product>
-      <app-card-product></app-card-product>
-      <app-card-product></app-card-product>
-      <app-card-product></app-card-product>
-      <app-card-product></app-card-product>
-    </div>
-  </section>
+    <section class="visited">
+      <div class="visited__header">
+        <h2 class="visited__title">Basado en tu última visita</h2>
+        <span class="visited__link">Ver historial</span>
+      </div>
+      <div class="visited__card">
+        <app-card-product></app-card-product>
+        <app-card-product></app-card-product>
+        <app-card-product></app-card-product>
+        <app-card-product></app-card-product>
+        <app-card-product></app-card-product>
+      </div>
+    </section>
+
+    <section class="visited">
+      <div class="visited__header">
+        <h2 class="visited__title">Ofertas</h2>
+        <span class="visited__link">Ver historial</span>
+      </div>
+      <div class="visited__card">
+        <app-card-product></app-card-product>
+        <app-card-product></app-card-product>
+        <app-card-product></app-card-product>
+        <app-card-product></app-card-product>
+        <app-card-product></app-card-product>
+      </div>
+    </section>
+  </ng-template>
 </main>

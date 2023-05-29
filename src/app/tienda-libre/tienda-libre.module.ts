@@ -2,29 +2,29 @@ import { NgModule } from "@angular/core"
 import { CommonModule } from "@angular/common"
 
 import { ComponentsModule } from "./components/components.module"
-import { MenuComponent } from "../shared/menu/menu.component"
+import { MaterialModule } from "../shared/material/material.module"
 import { TiendaLibreRoutingModule } from "./tienda-libre-routing.module"
 
-import { HomeComponent } from "./pages/home/home.component"
-import { ProductComponent } from "./pages/categorie/pages/product/product.component"
 
-import { MatTabsModule } from "@angular/material/tabs"
+import { HomeComponent } from "./pages/home/home.component"
+import { LoadingComponent } from "../shared/loading/loading.component"
+import { MenuComponent } from "../shared/menu/menu.component"
+import { ProductComponent } from "./pages/categorie/pages/product/product.component"
 import { ReviewComponent } from "./pages/categorie/pages/components/review/review.component"
 import { RatingComponent } from "./pages/categorie/pages/components/rating/rating.component"
 
-import { MatProgressBarModule } from "@angular/material/progress-bar"
 
 @NgModule({
   declarations: [HomeComponent, ProductComponent],
   imports: [
     CommonModule,
     ComponentsModule,
+    LoadingComponent,
     MenuComponent,
+    MaterialModule,
     TiendaLibreRoutingModule,
     ReviewComponent,
     RatingComponent,
-    MatTabsModule,
-    MatProgressBarModule,
   ],
   exports: [HomeComponent],
 })

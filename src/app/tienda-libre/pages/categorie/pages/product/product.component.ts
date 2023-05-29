@@ -18,6 +18,8 @@ export class ProductComponent implements OnInit {
   product: IProduct = MProduct
   productId!: number
 
+  loading = true
+
   constructor(
     private reviewsService: ReviewsService,
     private productService: ProductsService,
@@ -27,7 +29,6 @@ export class ProductComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         let currUrl = event.url.split("/")
         this.productId = Number(currUrl[currUrl.length - 1])
-        this.initProduct()
       }
     })
   }
@@ -37,12 +38,15 @@ export class ProductComponent implements OnInit {
     this.positiveReviews = this.reviewsService.allPositiveReviews
     this.negativeReviews = this.reviewsService.allNegativeReviews
 
+    this.initProduct()
+
     window.scrollTo(0, 0)
   }
 
   initProduct() {
     this.productService.productById(this.productId).subscribe((item) => {
       this.product = item
+      this.loading = false
     })
   }
 }

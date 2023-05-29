@@ -10,25 +10,23 @@ import { ProductsService } from "src/app/services/products/products.service"
 export class HomeComponent implements OnInit, OnDestroy {
   products: IProduct[] = []
   categories = new Set()
+  loading: boolean = true
 
   constructor(private productService: ProductsService) {}
-
-  productsByCategory(category: string | unknown): IProduct[] {
-    let filteredByCategory = this.products.filter(
-      (item) => item.category === category
-    )
-
-    return filteredByCategory
-  }
 
   ngOnInit(): void {
     this.productService.products().subscribe((data) => {
       this.products = data
       data.forEach((item) => this.categories.add(item.category))
+      this.loading = false
     })
   }
 
   ngOnDestroy(): void {
-    this.productService.products().subscribe().unsubscribe()
+    this.productService.products().subscribe().unsubscribe() //* CUAL ES EL FIN DE ESTO? JAJA
+  }
+
+  productsByCategory(category: string | unknown): IProduct[] {
+    return this.products.filter((item) => item.category === category)
   }
 }

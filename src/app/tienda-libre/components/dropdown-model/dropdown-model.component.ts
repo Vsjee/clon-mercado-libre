@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from "@angular/core"
 
 @Component({
-  selector: 'app-dropdown-model',
-  templateUrl: './dropdown-model.component.html',
-  styleUrls: ['./dropdown-model.component.scss']
+  selector: "app-dropdown-model",
+  templateUrl: "./dropdown-model.component.html",
+  styleUrls: ["./dropdown-model.component.scss"],
 })
-export class DropdownModelComponent implements OnInit {
+export class DropdownModelComponent {
+  visibleMenu: boolean = true
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  dropdownMenu(): void {
+    this.visibleMenu = !this.visibleMenu
   }
-
 }

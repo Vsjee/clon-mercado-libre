@@ -1,15 +1,55 @@
-<div class="drop">
-  <div class="drop__name">
+<div class="drop__container">
+  <div class="drop" (click)="dropdownMenu()">
+    <div class="drop__name">
+      <img
+        src="https://falabella.scene7.com/is/image/FalabellaCO/55466201_1"
+        alt="Product"
+        class="drop__img"
+      />
+      <span class="drop__title">Model: A1369 ó A1466</span>
+    </div>
     <img
-      src="https://falabella.scene7.com/is/image/FalabellaCO/55466201_1"
-      alt="Product"
-      class="drop__img"
+      src="../../../../assets/icons/chevron-{{
+        visibleMenu ? 'down' : 'up'
+      }}.svg"
+      alt="Chevron Down"
+      class="drop__arrowDown"
     />
-    <span class="drop__title">Model: A1369 ó A1466</span>
   </div>
-  <img
-    src="../../../../assets/icons/chevron-down.svg"
-    alt="Chevron Down"
-    class="drop__arrowDown"
-  />
+  <ng-container *ngIf="visibleMenu" [ngTemplateOutlet]="options"></ng-container>
 </div>
+
+<ng-template #options>
+  <div class="contain">
+    <div class="drop drop--options">
+      <div class="drop__name">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIwd5ToeXsAOYYHP36YsEGI4Qlj38p_zR6vpmDm-09LOAEez0rw3K_NZs5gNWxoqc5qaY&usqp=CAU"
+          alt="Product"
+          class="drop__img"
+        />
+        <span class="drop__title">Model: A1369 ó A1466</span>
+      </div>
+    </div>
+    <div class="drop drop--options">
+      <div class="drop__name">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIwd5ToeXsAOYYHP36YsEGI4Qlj38p_zR6vpmDm-09LOAEez0rw3K_NZs5gNWxoqc5qaY&usqp=CAU"
+          alt="Product"
+          class="drop__img"
+        />
+        <span class="drop__title">Model: A1369 ó A1466</span>
+      </div>
+    </div>
+    <div class="drop drop--options">
+      <div class="drop__name">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIwd5ToeXsAOYYHP36YsEGI4Qlj38p_zR6vpmDm-09LOAEez0rw3K_NZs5gNWxoqc5qaY&usqp=CAU"
+          alt="Product"
+          class="drop__img"
+        />
+        <span class="drop__title">Model: A1369 ó A1466</span>
+      </div>
+    </div>
+  </div>
+</ng-template>

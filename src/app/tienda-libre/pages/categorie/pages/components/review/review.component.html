@@ -1,0 +1,11 @@
+<article class="review">
+  <div class="review__header">
+    <h4 class="review__user">{{ review.user }}</h4>
+    <div *ngFor="let rate of rating" class="rate">
+      <span *ngIf="rate.rate !== 0">⭐</span>
+      <span *ngIf="rate.rate === 0">😥</span>
+    </div>
+  </div>
+
+  <p class="review__content">{{ review.review }}</p>
+</article>

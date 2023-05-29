@@ -8,20 +8,12 @@
       <div class="left__carousel">
         <div class="carousel__picker">
           <picture>
-            <img
-              src="https://falabella.scene7.com/is/image/FalabellaCO/55466201_1"
-              alt="product"
-              class="image--select"
-            />
+            <img [src]="product.image" alt="product" class="image--select" />
           </picture>
         </div>
         <div class="carousel__image">
           <picture>
-            <img
-              src="https://falabella.scene7.com/is/image/FalabellaCO/55466201_1"
-              alt="product"
-              class="image--select"
-            />
+            <img [src]="product.image" alt="product" class="image--select" />
           </picture>
         </div>
       </div>
@@ -38,22 +30,30 @@
         </picture>
       </button>
       <div class="info__data">
-        <p class="right__sells">Nuevo | +2000 vendidos</p>
-        <h3>Pad Mouse Diferentes Motivos</h3>
-        <p class="right__calification">⭐⭐⭐⭐⭐ (183) opiniones</p>
+        <p class="right__sells">Nuevo | +{{ product.rating.count }} vendidos</p>
+        <h3>{{ product.title }}</h3>
+        <p class="right__calification">
+          ⭐⭐⭐⭐⭐ ({{ reviews.length }}) opiniones
+        </p>
 
         <div class="right__offer">
           <span class="right__text">MAS VENDIDO</span>
           <span class="right__legend">3° en Tenis para Deportes</span>
         </div>
 
-        <h2>$<span>18.99</span></h2>
+        <h2>
+          $<span>{{ product.price }}</span>
+        </h2>
         <p class="right__taxes">en <span> 12x $2.8 sin interes </span></p>
         <p class="right__taxes__iva">IVA incluido</p>
 
         <div class="right__model">
           <p class="right__modelText">Modelo compatible:</p>
           <app-dropdown-model
+<<<<<<< HEAD
+=======
+            [info]="product"
+>>>>>>> b47183c6dbe8f16de825226fde5d72d351ffd8a3
             [ngStyle]="{ width: '100%' }"
           ></app-dropdown-model>
         </div>
@@ -64,6 +64,51 @@
       </div>
     </article>
   </section>
+
+  <!-- product description -->
+  <section class="description">
+    <h3 class="description__title">Descripción</h3>
+    <p class="description__content">
+      {{ product.description }}
+    </p>
+  </section>
+
+  <!-- product reviews -->
+  <section class="reviews">
+    <h3 class="reviews__title">
+      Opiniones del producto ({{ reviews.length }})
+    </h3>
+    <div class="reviews__col">
+      <article class="reviews__left">
+        <app-rating [review]="reviews"></app-rating>
+      </article>
+      <article class="reviews__right">
+        <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+          <mat-tab label="Todas">
+            <app-review
+              *ngFor="let review of reviews"
+              [review]="review"
+            ></app-review>
+          </mat-tab>
+          <mat-tab label="Positivas">
+            <app-review
+              *ngFor="let review of positiveReviews"
+              [review]="review"
+            ></app-review>
+          </mat-tab>
+          <mat-tab label="Negativas">
+            <app-review
+              *ngFor="let review of negativeReviews"
+              [review]="review"
+            ></app-review>
+          </mat-tab>
+        </mat-tab-group>
+      </article>
+    </div>
+  </section>
+
+  <!-- similar products -->
+  <section class="similar"></section>
 </section>
 
 <ng-template #description>

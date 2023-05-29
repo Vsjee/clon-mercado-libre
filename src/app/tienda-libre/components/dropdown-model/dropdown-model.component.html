@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="drop__container">
   <div class="drop" (click)="dropdownMenu()">
     <div class="drop__name">
@@ -15,6 +16,12 @@
       alt="Chevron Down"
       class="drop__arrowDown"
     />
+=======
+<div class="drop">
+  <div class="drop__name">
+    <img [src]="info.image" [alt]="info.title" class="drop__img" />
+    <span class="drop__title">Model: {{ info.title }}</span>
+>>>>>>> b47183c6dbe8f16de825226fde5d72d351ffd8a3
   </div>
   <ng-container *ngIf="visibleMenu" [ngTemplateOutlet]="options"></ng-container>
 </div>

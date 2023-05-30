@@ -4,6 +4,9 @@ import { RouterModule } from "@angular/router"
 import { MenuList } from "../../interfaces/menu.interface"
 import { CategoryMenuComponent } from "../category-menu/category-menu.component"
 import { TiendaLibreRoutingModule } from "src/app/tienda-libre/tienda-libre-routing.module"
+import { Store } from "@ngrx/store"
+import { AppState, selectCartList } from "src/app/state"
+import { IProduct } from "src/app/interfaces"
 
 @Component({
   selector: "app-menu",
@@ -12,38 +15,46 @@ import { TiendaLibreRoutingModule } from "src/app/tienda-libre/tienda-libre-rout
     CommonModule,
     RouterModule,
     CategoryMenuComponent,
-    TiendaLibreRoutingModule
+    TiendaLibreRoutingModule,
   ],
   templateUrl: "./menu.component.html",
-  styleUrls: ["./menu.component.scss"]
+  styleUrls: ["./menu.component.scss"],
 })
 export class MenuComponent {
   menuList: MenuList[] = [
     {
       name: "Ofertas",
-      route: "ofertas"
+      route: "ofertas",
     },
     {
       name: "Historial",
-      route: "historial"
+      route: "historial",
     },
     {
       name: "Supermercado",
-      route: "categoria"
+      route: "categoria",
     },
     {
       name: "Moda",
-      route: "categoria"
+      route: "categoria",
     },
     {
       name: "Vender",
-      route: "vender"
+      route: "vender",
     },
     {
       name: "Ayuda",
-      route: "ayuda"
-    }
+      route: "ayuda",
+    },
   ]
+
+  cartListSize!: number
+
+  constructor(private store: Store<AppState>) {
+    this.store.select(selectCartList).subscribe((item: IProduct[]) => {
+      this.cartListSize = item.length
+    })
+  }
 
   visibleCategory: boolean = false
 

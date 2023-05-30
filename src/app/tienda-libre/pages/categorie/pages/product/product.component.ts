@@ -29,11 +29,11 @@ export class ProductComponent implements OnInit {
     private reviewsService: ReviewsService,
     private router: Router,
     private store: Store
-  ) {}
+  ) {
+    this.initRoute()
+  }
 
   ngOnInit(): void {
-    this.initRoute()
-
     this.reviews = this.reviewsService.allReviews
     this.positiveReviews = this.reviewsService.allPositiveReviews
     this.negativeReviews = this.reviewsService.allNegativeReviews

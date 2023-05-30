@@ -16,7 +16,6 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit(): void {
     this.store.select(selectCartList).subscribe((state: IProduct[]) => {
       this.cartList = state
-      console.log(this.cartList)
     })
   }
 }

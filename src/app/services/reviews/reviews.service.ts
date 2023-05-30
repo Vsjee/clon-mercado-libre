@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core"
-import { IBarRate } from "src/app/interfaces"
+import { IBarRate, ReviewComment } from "src/app/interfaces"
 import { IReview } from "src/app/interfaces"
 import { MreviewRateGraph } from "src/app/models"
 
@@ -64,11 +64,11 @@ export class ReviewsService {
   }
 
   get allPositiveReviews(): IReview[] {
-    return this.reviews.filter((item) => item.type === "Positiva")
+    return this.reviews.filter((item) => item.type === ReviewComment.positivo)
   }
 
   get allNegativeReviews(): IReview[] {
-    return this.reviews.filter((item) => item.type === "Negativa")
+    return this.reviews.filter((item) => item.type === ReviewComment.negativo)
   }
 
   get starPercentage(): IBarRate[] {
@@ -97,7 +97,7 @@ export class ReviewsService {
     }
 
     reviewRateGraph.map((item) => {
-      let totalPercentage = (item.starsNumber / this.reviews.length) * 100
+      const totalPercentage = (item.starsNumber / this.reviews.length) * 100
       item.percentage = Math.round(totalPercentage)
     })
 

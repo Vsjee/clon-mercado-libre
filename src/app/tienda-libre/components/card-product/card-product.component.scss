@@ -4,13 +4,18 @@
   overflow: hidden;
   border: 1px solid var(--grey-4);
   background-color: var(--white);
-  border-radius: 0 0 6px 6px ;
-  transition: .3s ease-in-out;
+  border-radius: 0 0 6px 6px;
+  transition: 0.3s ease-in-out;
   cursor: pointer;
 }
 
 .card:hover {
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+    .card__description {
+      display: block;
+    }
 }
 
 .card__img {
@@ -22,7 +27,7 @@
 }
 
 .card__information {
-  padding: 15px;
+  padding: 15px 15px 0;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -50,4 +55,14 @@
 
 .card__total {
   font: var(--body-14regular_u);
+}
+
+.card__description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: none;
+  font: var(--body-14regular_u);
+  color: var(--grey-2);
+  padding: 15px;
 }

@@ -1,9 +1,11 @@
 import { Component, OnInit } from "@angular/core"
 import { NavigationEnd, Router } from "@angular/router"
+import { Store } from "@ngrx/store"
 import { IProduct, IReview } from "src/app/interfaces"
 import { MProduct } from "src/app/models/product.model"
 import { ProductsService } from "src/app/services/products/products.service"
 import { ReviewsService } from "src/app/services/reviews/reviews.service"
+import { addCartItem } from "src/app/state"
 
 @Component({
   selector: "app-product",
@@ -21,6 +23,7 @@ export class ProductComponent implements OnInit {
   loading = true
 
   constructor(
+    private store: Store,
     private reviewsService: ReviewsService,
     private productService: ProductsService,
     private router: Router
@@ -31,6 +34,10 @@ export class ProductComponent implements OnInit {
         this.productId = Number(currUrl[currUrl.length - 1])
       }
     })
+  }
+
+  addToCart() {
+    this.store.dispatch(addCartItem({ cart: this.product }))
   }
 
   ngOnInit(): void {

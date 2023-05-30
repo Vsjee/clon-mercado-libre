@@ -3,6 +3,7 @@ import { NavigationEnd, Router } from "@angular/router"
 import { Store } from "@ngrx/store"
 import { IProduct, IReview } from "src/app/interfaces"
 import { MProduct } from "src/app/models/product.model"
+import { SnackbarService } from "src/app/services"
 import { ProductsService } from "src/app/services/products/products.service"
 import { ReviewsService } from "src/app/services/reviews/reviews.service"
 import { addCartItem } from "src/app/state"
@@ -23,10 +24,11 @@ export class ProductComponent implements OnInit {
   loading = true
 
   constructor(
-    private store: Store,
-    private reviewsService: ReviewsService,
+    private snackbarService: SnackbarService,
     private productService: ProductsService,
-    private router: Router
+    private reviewsService: ReviewsService,
+    private router: Router,
+    private store: Store
   ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -38,6 +40,9 @@ export class ProductComponent implements OnInit {
 
   addToCart() {
     this.store.dispatch(addCartItem({ cart: this.product }))
+    this.snackbarService.openSnackBar(
+      `Producto ${this.product.title} se añadio al carrito`
+    )
   }
 
   ngOnInit(): void {

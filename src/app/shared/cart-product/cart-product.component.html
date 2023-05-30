@@ -1,0 +1,28 @@
+<article class="card">
+  <div class="card__info">
+    <picture class="card__picture">
+      <img [src]="product.image" [alt]="product.title" class="picture__img" />
+    </picture>
+    <div class="info">
+      <h3 class="info__title">{{ product.title }} - $ {{ product.price }}</h3>
+      <p class="info__category">Categoria: {{ product.category }}</p>
+      <Button class="card__delete" (click)="deleteProduct(product.id)">
+        Eliminar
+      </Button>
+    </div>
+  </div>
+  <div class="card__add">
+    <button class="add__btn minus"></button>
+    <input
+      type="number"
+      value="1"
+      min="1"
+      minlength="1"
+      max="100"
+      maxlength="3"
+      placeholder="0"
+      class="add__quantity"
+    />
+    <button class="add__btn add"></button>
+  </div>
+</article>

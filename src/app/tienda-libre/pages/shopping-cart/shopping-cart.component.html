@@ -1,1 +1,31 @@
-<p>shopping-cart works!</p>
+<section class="container">
+  <mat-tab-group>
+    <mat-tab label="Carrito ({{ cartList.length }})">
+      <section class="cart">
+        <section class="cart__list">
+          <app-cart-product
+            *ngFor="let product of cartList"
+            [product]="product"
+          >
+          </app-cart-product>
+        </section>
+        <section class="cart__resume">
+          <h2 class="resume_price">$00.00</h2>
+          <div class="resume__info">
+            <p class="info__ship">
+              <span>Se envia a calle 7 #64-1</span>
+              <span>$00.00</span>
+            </p>
+            <div class="info__total">
+              <p class="total__price">
+                <span>precio total con envio</span>
+                <span>$00.00</span>
+              </p>
+              <button class="total__btn">Paga con paypal</button>
+            </div>
+          </div>
+        </section>
+      </section>
+    </mat-tab>
+  </mat-tab-group>
+</section>

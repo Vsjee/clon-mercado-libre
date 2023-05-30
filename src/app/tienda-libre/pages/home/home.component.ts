@@ -27,6 +27,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   productsByCategory(category: string | unknown): IProduct[] {
-    return this.products.filter((item) => item/* .category === category */)
+    return this.products.filter((item) => item.category === category)
   }
 }

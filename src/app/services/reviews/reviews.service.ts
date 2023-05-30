@@ -71,29 +71,17 @@ export class ReviewsService {
     return this.reviews.filter((item) => item.type === ReviewComment.negativo)
   }
 
+  valide = (property: any) =>
+    typeof property === "undefined" || property === null
+
   get starPercentage(): IBarRate[] {
     let reviewRateGraph: IBarRate[] = MreviewRateGraph
 
     for (let i = 0; i < this.reviews.length; i++) {
       const currStarsNumber = this.reviews[i].rating
 
-      switch (currStarsNumber) {
-        case 1:
-          reviewRateGraph[0].starsNumber += 1
-          break
-        case 2:
-          reviewRateGraph[1].starsNumber += 1
-          break
-        case 3:
-          reviewRateGraph[2].starsNumber += 1
-          break
-        case 4:
-          reviewRateGraph[3].starsNumber += 1
-          break
-        case 5:
-          reviewRateGraph[4].starsNumber += 1
-          break
-      }
+      if (this.valide(currStarsNumber))
+        reviewRateGraph[-currStarsNumber].starsNumber += 1
     }
 
     reviewRateGraph.map((item) => {

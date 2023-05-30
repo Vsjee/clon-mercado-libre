@@ -1,6 +1,6 @@
-<article class="review">
+<article class="review" *ngIf="review">
   <div class="review__header">
-    <h4 class="review__user">{{ review.user }}</h4>
+    <h4 class="review__user">{{ review.user | titlecase }}</h4>
     <div *ngFor="let rate of rating" class="rate">
       <span *ngIf="rate.rate !== 0">⭐</span>
       <span *ngIf="rate.rate === 0">😥</span>
@@ -8,4 +8,5 @@
   </div>
 
   <p class="review__content">{{ review.review }}</p>
+  <hr />
 </article>

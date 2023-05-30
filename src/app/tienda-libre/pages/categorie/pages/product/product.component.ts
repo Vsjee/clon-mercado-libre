@@ -29,13 +29,18 @@ export class ProductComponent implements OnInit {
     private reviewsService: ReviewsService,
     private router: Router,
     private store: Store
-  ) {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        let currUrl = event.url.split("/")
-        this.productId = Number(currUrl[currUrl.length - 1])
-      }
-    })
+  ) {}
+
+  ngOnInit(): void {
+    this.initRoute()
+
+    this.reviews = this.reviewsService.allReviews
+    this.positiveReviews = this.reviewsService.allPositiveReviews
+    this.negativeReviews = this.reviewsService.allNegativeReviews
+
+    this.initProduct()
+
+    window.scrollTo(0, 0)
   }
 
   addToCart() {
@@ -45,14 +50,13 @@ export class ProductComponent implements OnInit {
     )
   }
 
-  ngOnInit(): void {
-    this.reviews = this.reviewsService.allReviews
-    this.positiveReviews = this.reviewsService.allPositiveReviews
-    this.negativeReviews = this.reviewsService.allNegativeReviews
-
-    this.initProduct()
-
-    window.scrollTo(0, 0)
+  initRoute(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const currUrl = event.url.split("/")
+        this.productId = Number(currUrl[currUrl.length - 1])
+      }
+    })
   }
 
   initProduct() {

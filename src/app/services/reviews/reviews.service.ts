@@ -78,10 +78,8 @@ export class ReviewsService {
     let reviewRateGraph: IBarRate[] = MreviewRateGraph
 
     for (let i = 0; i < this.reviews.length; i++) {
-      const currStarsNumber = this.reviews[i].rating
-
-      if (this.valide(currStarsNumber))
-        reviewRateGraph[-currStarsNumber].starsNumber += 1
+      const currStarsNumber = this.reviews[i].rating - 1
+      reviewRateGraph[currStarsNumber].starsNumber += 1
     }
 
     reviewRateGraph.map((item) => {

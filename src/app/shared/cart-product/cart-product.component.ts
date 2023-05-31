@@ -1,7 +1,13 @@
 import { Component, Input } from "@angular/core"
 import { Store } from "@ngrx/store"
 import { IProduct } from "src/app/interfaces"
-import { AppState, removeCartItem } from "src/app/state"
+import {
+  AppState,
+  localCartKey,
+  removeCartItem,
+  selectCartList,
+} from "src/app/state"
+import { setLocalStorage } from "src/app/utilities"
 
 @Component({
   standalone: true,
@@ -17,5 +23,12 @@ export class CartProductComponent {
 
   deleteProduct(id: number) {
     this.store.dispatch(removeCartItem({ id: id }))
+    this.setLocalCart()
+  }
+
+  setLocalCart() {
+    this.store.select(selectCartList).subscribe((data: IProduct[]) => {
+      setLocalStorage<IProduct[]>(localCartKey, data)
+    })
   }
 }

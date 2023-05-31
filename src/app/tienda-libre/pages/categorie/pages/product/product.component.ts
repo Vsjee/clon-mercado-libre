@@ -6,7 +6,13 @@ import { MProduct } from "src/app/models/product.model"
 import { SnackbarService } from "src/app/services"
 import { ProductsService } from "src/app/services/products/products.service"
 import { ReviewsService } from "src/app/services/reviews/reviews.service"
-import { addCartItem } from "src/app/state"
+import {
+  AppState,
+  addCartItem,
+  localCartKey,
+  selectCartList,
+} from "src/app/state"
+import { setLocalStorage } from "src/app/utilities/localStorage.util"
 
 @Component({
   selector: "app-product",
@@ -28,12 +34,12 @@ export class ProductComponent implements OnInit {
     private productService: ProductsService,
     private reviewsService: ReviewsService,
     private router: Router,
-    private store: Store
-  ) {}
+    private store: Store<AppState>
+  ) {
+    this.initRoute()
+  }
 
   ngOnInit(): void {
-    this.initRoute()
-
     this.reviews = this.reviewsService.allReviews
     this.positiveReviews = this.reviewsService.allPositiveReviews
     this.negativeReviews = this.reviewsService.allNegativeReviews
@@ -48,6 +54,13 @@ export class ProductComponent implements OnInit {
     this.snackbarService.openSnackBar(
       `Producto ${this.product.title} se añadio al carrito`
     )
+    this.setLocalCart()
+  }
+
+  setLocalCart() {
+    this.store.select(selectCartList).subscribe((data: IProduct[]) => {
+      setLocalStorage<IProduct[]>(localCartKey, data)
+    })
   }
 
   initRoute(): void {

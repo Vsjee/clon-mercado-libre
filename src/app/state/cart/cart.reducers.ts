@@ -2,8 +2,14 @@ import { createReducer, on } from "@ngrx/store"
 import { CartState } from "src/app/interfaces/cart.interface"
 import { addCartItem } from "./cart.actions"
 import { removeCartItem } from "./cart.actions"
+import { getLocalStorage } from "src/app/utilities/localStorage.util"
 
-export const initalState: CartState = { loading: false, cartList: [] }
+export const localCartKey = "cart"
+
+export const initalState: CartState = {
+  loading: false,
+  cartList: getLocalStorage(localCartKey),
+}
 
 export const cartReducer = createReducer(
   initalState,

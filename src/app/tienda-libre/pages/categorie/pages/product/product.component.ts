@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core"
-import { NavigationEnd, Router } from "@angular/router"
+import { ActivatedRoute, NavigationEnd, Router } from "@angular/router"
 import { Store } from "@ngrx/store"
 import { IProduct, IReview } from "src/app/interfaces"
 import { MProduct } from "src/app/models/product.model"
@@ -24,6 +24,7 @@ export class ProductComponent implements OnInit {
   positiveReviews!: IReview[]
   negativeReviews!: IReview[]
 
+  similarProducts: IProduct[] = []
   product: IProduct = MProduct
   productId!: number
 
@@ -33,9 +34,11 @@ export class ProductComponent implements OnInit {
     private snackbarService: SnackbarService,
     private productService: ProductsService,
     private reviewsService: ReviewsService,
+    private route: ActivatedRoute,
     private router: Router,
     private store: Store<AppState>
   ) {
+    this.route.paramMap.subscribe(() => this.ngOnInit())
     this.initRoute()
   }
 
@@ -76,6 +79,16 @@ export class ProductComponent implements OnInit {
     this.productService.productById(this.productId).subscribe((item) => {
       this.product = item
       this.loading = false
+      this.initSimilarProducts()
     })
+  }
+
+  initSimilarProducts() {
+    this.productService
+      .productsByCategory(this.product.category)
+      .subscribe((data) => {
+        this.similarProducts = data
+        console.log(data)
+      })
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, HostListener, OnInit } from "@angular/core"
 import { Store } from "@ngrx/store"
 import { IProduct } from "src/app/interfaces"
 import { AppState, selectCartList } from "src/app/state"
@@ -14,7 +14,14 @@ export class ShoppingCartComponent implements OnInit {
   totalPrice: number = 0
   shippingPrice: number = 8.5
 
+  screenWidth: number = window.screen.width
+
   constructor(private store: Store<AppState>) {}
+
+  @HostListener("window:resize", ["$event"])
+  onResize(event: { target: { innerWidth: any } }) {
+    this.screenWidth = event.target.innerWidth
+  }
 
   ngOnInit(): void {
     this.store.select(selectCartList).subscribe((state: IProduct[]) => {

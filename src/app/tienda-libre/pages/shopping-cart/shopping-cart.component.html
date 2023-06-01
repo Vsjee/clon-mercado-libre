@@ -27,5 +27,23 @@
         </section>
       </section>
     </mat-tab>
+    <mat-tab label="Resumen compra" *ngIf="screenWidth < 750">
+      <section class="cart__resume__responsive">
+        <h2 class="resume_price">${{ price }}</h2>
+        <div class="resume__info">
+          <p class="info__ship">
+            <span>Se envia a calle 7 #64-1</span>
+            <span>${{ shippingPrice }}</span>
+          </p>
+          <div class="info__total">
+            <p class="total__price">
+              <span>precio total con envio</span>
+              <span>${{ totalPrice }}</span>
+            </p>
+            <button class="total__btn">Paga con paypal</button>
+          </div>
+        </div>
+      </section>
+    </mat-tab>
   </mat-tab-group>
 </section>

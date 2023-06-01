@@ -2,6 +2,7 @@ import { Component, Input } from "@angular/core"
 import { Router } from "@angular/router"
 import { IProduct } from "src/app/interfaces"
 import { MProduct } from "src/app/models/product.model"
+import { DetailProductService } from "src/app/services/detailProduct/detail-product.service"
 
 @Component({
   selector: "app-card-product",
@@ -11,11 +12,9 @@ import { MProduct } from "src/app/models/product.model"
 export class CardProductComponent {
   @Input() product: IProduct = MProduct
 
-  constructor(private router: Router) {}
+  constructor(private detailProductService: DetailProductService) {}
 
   detailProduct(): void {
-    const category = this.product.category
-    const id = this.product.id.toString()
-    this.router.navigate([`/categoria/${category}/${id}`])
+    this.detailProductService.detailProduct(this.product)
   }
 }

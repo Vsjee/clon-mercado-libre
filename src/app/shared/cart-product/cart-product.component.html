@@ -1,10 +1,12 @@
 <article class="card">
   <div class="card__info">
-    <picture class="card__picture">
+    <picture class="card__picture" (click)="detailProduct()">
       <img [src]="product.image" [alt]="product.title" class="picture__img" />
     </picture>
     <div class="info">
-      <h3 class="info__title">{{ product.title }} - $ {{ product.price }}</h3>
+      <h3 class="info__title" (click)="detailProduct()">
+        {{ product.title }} - $ {{ product.price }}
+      </h3>
       <p class="info__category">Categoria: {{ product.category }}</p>
       <Button class="card__delete" (click)="deleteProduct(product.id)">
         Eliminar

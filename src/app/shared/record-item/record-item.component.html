@@ -1,0 +1,15 @@
+<article class="record">
+  <div class="record__left">
+    <span class="left__times">Visto: {{ record.times }}</span>
+    <picture class="left__pic">
+      <img [src]="record.image" [alt]="record.title" class="pic__img" />
+    </picture>
+    <h4>{{ record.title }}</h4>
+  </div>
+  <div class="record__right">
+    <span class="rigth__date">
+      {{ record.date | date : "h:mm a" }}
+      {{ record.date | date : "dd/MM/yyyy" }}</span
+    >
+  </div>
+</article>

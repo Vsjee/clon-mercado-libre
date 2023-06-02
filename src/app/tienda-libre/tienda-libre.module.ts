@@ -18,9 +18,16 @@ import { RatingComponent } from "./pages/categorie/pages/components/rating/ratin
 import { CartProductComponent } from "../shared/cart-product/cart-product.component"
 import { ShoppingCartComponent } from "./pages/shopping-cart/shopping-cart.component"
 import { CarouselItemComponent } from "../shared/carousel-item/carousel-item.component"
+import { RecordItemComponent } from "../shared/record-item/record-item.component"
+import { RecordComponent } from "./pages/record/record.component"
 
 @NgModule({
-  declarations: [HomeComponent, ProductComponent, ShoppingCartComponent],
+  declarations: [
+    HomeComponent,
+    ProductComponent,
+    ShoppingCartComponent,
+    RecordComponent,
+  ],
   imports: [
     CommonModule,
     ComponentsModule,
@@ -32,6 +39,7 @@ import { CarouselItemComponent } from "../shared/carousel-item/carousel-item.com
     RatingComponent,
     MatSnackBarModule,
     CartProductComponent,
+    RecordItemComponent,
     DragScrollModule,
     CarouselItemComponent,
   ],

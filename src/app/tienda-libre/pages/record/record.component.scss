@@ -4,6 +4,9 @@
   .record__del {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--grey-3);
 
     .del__title {
       color: var(--black);

@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core"
 import { ActivatedRoute, NavigationEnd, Router } from "@angular/router"
 import { Store } from "@ngrx/store"
-import { IProduct, IReview } from "src/app/interfaces"
+import { IProduct, IProductRecord, IReview } from "src/app/interfaces"
 import { MProduct } from "src/app/models/product.model"
 import { SnackbarService } from "src/app/services"
 import { ProductsService } from "src/app/services/products/products.service"
@@ -12,6 +12,7 @@ import {
   localCartKey,
   selectCartList,
 } from "src/app/state"
+import { addRecordItem } from "src/app/state/record/record.actions"
 import { setLocalStorage } from "src/app/utilities/localStorage.util"
 
 @Component({
@@ -60,6 +61,16 @@ export class ProductComponent implements OnInit {
     this.setLocalCart()
   }
 
+  addToRecord() {
+    const date = new Date()
+    const record: IProductRecord = {
+      ...this.product,
+      times: 1,
+      date: date,
+    }
+    this.store.dispatch(addRecordItem({ record: record }))
+  }
+
   setLocalCart() {
     this.store.select(selectCartList).subscribe((data: IProduct[]) => {
       setLocalStorage<IProduct[]>(localCartKey, data)
@@ -80,6 +91,7 @@ export class ProductComponent implements OnInit {
       this.product = item
       this.loading = false
       this.initSimilarProducts()
+      this.addToRecord()
     })
   }
 

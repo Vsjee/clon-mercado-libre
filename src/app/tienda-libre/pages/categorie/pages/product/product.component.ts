@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core"
-import { NavigationEnd, Router } from "@angular/router"
+import { ActivatedRoute, NavigationEnd, Router } from "@angular/router"
 import { Store } from "@ngrx/store"
-import { IProduct, IReview } from "src/app/interfaces"
+import { IProduct, IProductRecord, IReview } from "src/app/interfaces"
 import { MProduct } from "src/app/models/product.model"
 import { SnackbarService } from "src/app/services"
 import { ProductsService } from "src/app/services/products/products.service"
@@ -12,6 +12,9 @@ import {
   localCartKey,
   selectCartList,
 } from "src/app/state"
+import { addRecordItem } from "src/app/state/record/record.actions"
+import { localRecordKey } from "src/app/state/record/record.reducers"
+import { selectRecordList } from "src/app/state/record/record.selectors"
 import { setLocalStorage } from "src/app/utilities/localStorage.util"
 
 @Component({
@@ -24,6 +27,7 @@ export class ProductComponent implements OnInit {
   positiveReviews!: IReview[]
   negativeReviews!: IReview[]
 
+  similarProducts: IProduct[] = []
   product: IProduct = MProduct
   productId!: number
 
@@ -33,9 +37,11 @@ export class ProductComponent implements OnInit {
     private snackbarService: SnackbarService,
     private productService: ProductsService,
     private reviewsService: ReviewsService,
+    private route: ActivatedRoute,
     private router: Router,
     private store: Store<AppState>
   ) {
+    this.route.paramMap.subscribe(() => this.ngOnInit())
     this.initRoute()
   }
 
@@ -57,6 +63,23 @@ export class ProductComponent implements OnInit {
     this.setLocalCart()
   }
 
+  addToRecord() {
+    const date = new Date()
+    const record: IProductRecord = {
+      ...this.product,
+      times: 1,
+      date: date,
+    }
+    this.store.dispatch(addRecordItem({ record: record }))
+    this.setLocalRecord()
+  }
+
+  setLocalRecord() {
+    this.store.select(selectRecordList).subscribe((data: IProductRecord[]) => {
+      setLocalStorage<IProductRecord[]>(localRecordKey, data)
+    })
+  }
+
   setLocalCart() {
     this.store.select(selectCartList).subscribe((data: IProduct[]) => {
       setLocalStorage<IProduct[]>(localCartKey, data)
@@ -76,6 +99,17 @@ export class ProductComponent implements OnInit {
     this.productService.productById(this.productId).subscribe((item) => {
       this.product = item
       this.loading = false
+      this.initSimilarProducts()
+      this.addToRecord()
     })
+  }
+
+  initSimilarProducts() {
+    this.productService
+      .productsByCategory(this.product.category)
+      .subscribe((data) => {
+        this.similarProducts = data
+        console.log(data)
+      })
   }
 }

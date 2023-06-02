@@ -1,0 +1,32 @@
+.card {
+  display: grid;
+  place-content: center;
+  gap: 1rem;
+  width: 200px;
+  height: 200px;
+  cursor: grab;
+
+  .card__pic {
+    .pic__img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  .link__btn {
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--blue);
+    color: var(--white);
+    transition: var(--basic-transition);
+
+    &:hover {
+      background-color: var(--blue-light);
+      color: var(--blue);
+    }
+  }
+}

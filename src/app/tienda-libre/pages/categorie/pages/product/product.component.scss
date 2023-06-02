@@ -256,3 +256,11 @@
     }
   }
 }
+
+.similar {
+  margin: 5rem 0;
+
+  drag-scroll {
+    display: flex;
+  }
+}

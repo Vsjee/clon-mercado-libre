@@ -118,6 +118,17 @@
     </section>
 
     <!-- similar products -->
-    <section class="similar"></section>
+    <section class="similar">
+      <drag-scroll
+        style="width: 100%; height: 200px"
+        [scroll-x-wheel-enabled]="true"
+      >
+        <app-carousel-item
+          *ngFor="let product of similarProducts"
+          [product]="product"
+        >
+        </app-carousel-item>
+      </drag-scroll>
+    </section>
   </section>
 </ng-template>

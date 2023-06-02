@@ -1,0 +1,38 @@
+.record {
+  padding: 2rem 5%;
+
+  .record__del {
+    display: flex;
+    justify-content: space-between;
+
+    .del__title {
+      color: var(--black);
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .del__btn {
+      cursor: pointer;
+      padding: 0;
+      padding: 0 8px;
+      border: none;
+      border-radius: 50px;
+      background-color: transparent;
+      transition: var(--basic-transition);
+
+      .btn__pic .pic__btn {
+        width: 20px;
+        height: 20px;
+      }
+
+      &:hover {
+        background-color: var(--red);
+
+        .btn__pic .pic__btn {
+          filter: invert(100%) sepia(7%) saturate(402%) hue-rotate(178deg)
+            brightness(117%) contrast(100%);
+        }
+      }
+    }
+  }
+}

@@ -13,6 +13,8 @@ import {
   selectCartList,
 } from "src/app/state"
 import { addRecordItem } from "src/app/state/record/record.actions"
+import { localRecordKey } from "src/app/state/record/record.reducers"
+import { selectRecordList } from "src/app/state/record/record.selectors"
 import { setLocalStorage } from "src/app/utilities/localStorage.util"
 
 @Component({
@@ -69,6 +71,13 @@ export class ProductComponent implements OnInit {
       date: date,
     }
     this.store.dispatch(addRecordItem({ record: record }))
+    this.setLocalRecord()
+  }
+
+  setLocalRecord() {
+    this.store.select(selectRecordList).subscribe((data: IProductRecord[]) => {
+      setLocalStorage<IProductRecord[]>(localRecordKey, data)
+    })
   }
 
   setLocalCart() {

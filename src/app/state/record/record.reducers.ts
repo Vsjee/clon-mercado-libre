@@ -1,12 +1,13 @@
 import { createReducer, on } from "@ngrx/store"
 import { RecordState } from "src/app/interfaces/record.interface"
 import { addRecordItem, removeRecords } from "./record.actions"
+import { getLocalStorage } from "src/app/utilities"
 
 export const localRecordKey = "record"
 
 export const initalState: RecordState = {
   loading: false,
-  records: [],
+  records: getLocalStorage(localRecordKey),
 }
 
 export const recordReducer = createReducer(

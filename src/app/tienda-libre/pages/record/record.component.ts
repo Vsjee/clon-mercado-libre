@@ -3,7 +3,9 @@ import { Store } from "@ngrx/store"
 import { IProductRecord } from "src/app/interfaces"
 import { AppState } from "src/app/state"
 import { removeRecords } from "src/app/state/record/record.actions"
+import { localRecordKey } from "src/app/state/record/record.reducers"
 import { selectRecordList } from "src/app/state/record/record.selectors"
+import { removeLocalStorage } from "src/app/utilities"
 
 @Component({
   selector: "app-record",
@@ -23,5 +25,6 @@ export class RecordComponent implements OnInit {
 
   removeRecords() {
     this.store.dispatch(removeRecords())
+    removeLocalStorage(localRecordKey)
   }
 }

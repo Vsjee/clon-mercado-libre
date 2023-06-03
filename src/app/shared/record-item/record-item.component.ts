@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common"
 import { Component, Input } from "@angular/core"
 import { IProductRecord } from "src/app/interfaces"
+import { DetailProductService } from "src/app/services/detailProduct/detail-product.service"
 
 @Component({
   standalone: true,
@@ -12,5 +13,9 @@ import { IProductRecord } from "src/app/interfaces"
 export class RecordItemComponent {
   @Input() record!: IProductRecord
 
-  constructor() {}
+  constructor(private detailProductService: DetailProductService) {}
+
+  detailProduct() {
+    this.detailProductService.detailProduct(this.record)
+  }
 }

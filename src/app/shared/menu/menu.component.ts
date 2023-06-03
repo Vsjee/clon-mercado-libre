@@ -7,6 +7,7 @@ import { TiendaLibreRoutingModule } from "src/app/tienda-libre/tienda-libre-rout
 import { Store } from "@ngrx/store"
 import { AppState, selectCartList } from "src/app/state"
 import { IProduct } from "src/app/interfaces"
+import { GlobalSearchComponent } from "../global-search/global-search.component"
 
 @Component({
   selector: "app-menu",
@@ -16,6 +17,7 @@ import { IProduct } from "src/app/interfaces"
     RouterModule,
     CategoryMenuComponent,
     TiendaLibreRoutingModule,
+    GlobalSearchComponent,
   ],
   templateUrl: "./menu.component.html",
   styleUrls: ["./menu.component.scss"],

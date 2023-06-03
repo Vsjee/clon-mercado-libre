@@ -1,0 +1,73 @@
+<section class="sup__search">
+  <input
+    type="text"
+    class="sup__input"
+    placeholder="Buscar productos, marcas y más..."
+    [(ngModel)]="searchText"
+    #searchbar
+  />
+  <div class="divisor"></div>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="icon icon-tabler icon-tabler-search"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    stroke-width="2"
+    stroke="currentColor"
+    fill="none"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+    <path d="M21 21l-6 -6"></path>
+  </svg>
+</section>
+<section class="products__search__list">
+  <ul *ngIf="searchText !== ''" class="search__list">
+    <button
+      mat-icon-button
+      color="primary"
+      class="close__btn"
+      (click)="closeSearchMenu()"
+    >
+      <picture class="btn__pic">
+        <img src="../../../assets/icons/x.svg" alt="close" class="pic__img" />
+      </picture>
+    </button>
+    <li
+      *ngFor="let product of products | filterData : searchText"
+      class="list__item"
+    >
+      <a (click)="detailsProduct(product)">
+        {{ product.title }}
+      </a>
+    </li>
+  </ul>
+</section>
+
+<!-- <section class="sup__search">
+      <input
+        type="text"
+        class="sup__input"
+        placeholder="Buscar productos, marcas y más..."
+      />
+      <div class="divisor"></div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-search"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+        <path d="M21 21l-6 -6"></path>
+      </svg>
+    </section> -->

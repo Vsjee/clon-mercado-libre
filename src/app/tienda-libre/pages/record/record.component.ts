@@ -19,7 +19,19 @@ export class RecordComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.select(selectRecordList).subscribe((data: IProductRecord[]) => {
-      this.recordList = data
+      data.map((item: IProductRecord) => {
+        if (this.recordList.some((record) => record.id === item.id)) {
+          this.recordList.find((record, i) => {
+            if (item.id === record.id) {
+              this.recordList[i].times += 1
+              this.recordList[i].date = item.date
+            }
+            return record.id === item.id
+          })
+        } else {
+          this.recordList.push({ ...item })
+        }
+      })
     })
   }
 
@@ -27,4 +39,6 @@ export class RecordComponent implements OnInit {
     this.store.dispatch(removeRecords())
     removeLocalStorage(localRecordKey)
   }
+
+  orderRecordsByDate() {}
 }

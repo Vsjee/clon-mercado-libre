@@ -23,11 +23,17 @@ export class ShoppingCartComponent implements OnInit {
     this.screenWidth = event.target.innerWidth
   }
 
+  floorNumbers() {
+    this.price = Number(Math.floor(this.price).toFixed(2))
+    this.totalPrice = Number(Math.floor(this.totalPrice).toFixed(2))
+  }
+
   ngOnInit(): void {
     this.store.select(selectCartList).subscribe((state: IProduct[]) => {
       this.cartList = state
       state.forEach((item) => (this.price += item.price))
       this.totalPrice = this.price + this.shippingPrice
+      this.floorNumbers()
     })
   }
 }

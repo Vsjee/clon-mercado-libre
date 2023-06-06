@@ -13,4 +13,8 @@
   </div>
 
   <!-- here items -->
+  <app-record-item
+    *ngFor="let record of recordList"
+    [record]="record"
+  ></app-record-item>
 </section>

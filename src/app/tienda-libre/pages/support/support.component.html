@@ -1,1 +1,61 @@
-<p>support works!</p>
+<cdk-accordion class="example-accordion">
+  <cdk-accordion-item
+    *ngFor="let item of items; let index = index"
+    #accordionItem="cdkAccordionItem"
+    class="example-accordion-item"
+    role="button"
+    tabindex="0"
+    [attr.id]="'accordion-header-'"
+    [attr.aria-expanded]="accordionItem.expanded"
+    [attr.aria-controls]="'accordion-body-'"
+  >
+    <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
+      <span *ngIf="index === 0"> Formulario de contacto </span>
+      <span *ngIf="index !== 0"> FAQ (Preguntas Frecuentes) </span>
+      <span class="example-accordion-item-description">
+        {{ accordionItem.expanded ? "Cerrar" : "Expandir" }}
+      </span>
+    </div>
+    <div
+      class="example-accordion-item-body"
+      role="region"
+      [style.display]="accordionItem.expanded ? '' : 'none'"
+      [attr.id]="'accordion-body-'"
+      [attr.aria-labelledby]="'accordion-header-'"
+    >
+      <app-contact-form *ngIf="index === 0"></app-contact-form>
+      <div *ngIf="index !== 0">
+        <section class="sup__search">
+          <input
+            type="text"
+            class="sup__input"
+            placeholder="Buscar productos, marcas y más..."
+            [(ngModel)]="searchText"
+            #searchbar
+          />
+          <div class="divisor"></div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-search"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+            <path d="M21 21l-6 -6"></path>
+          </svg>
+        </section>
+        <app-faq-item
+          *ngFor="let faq of faqList | faqFilter : searchText"
+          [faq]="faq"
+        ></app-faq-item>
+      </div>
+    </div>
+  </cdk-accordion-item>
+</cdk-accordion>

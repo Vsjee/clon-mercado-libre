@@ -1,30 +1,35 @@
-<div class="precart">
+<div class="precart" *ngIf="cartItemsSize !== 0">
   <div class="precart__product">
     <div class="precart__item">
       <img
-        src="https://falabella.scene7.com/is/image/FalabellaCO/55466201_1"
-        alt="Product"
+        [src]="lastCartProduct.image"
+        [alt]="lastCartProduct.title"
         class="precart__img"
       />
       <div class="precart__description">
-        <p class="precart__title">Agregaste a tu carrito</p>
-        <p class="precart__name">Protector 123</p>
+        <p class="precart__title">Ultimo producto agregado</p>
+        <p class="precart__name">{{ lastCartProduct.title }}</p>
       </div>
     </div>
     <div class="divisor"></div>
     <div class="precart__offer">
       <div class="precart__description">
-        <p class="precart__name">
-          1 producto en tu carrito <strong>$160</strong>
+        <p class="precart__name" *ngIf="cartItemsSize === 1">
+          {{ cartItemsSize }} producto en tu carrito
+          <strong>${{ totalPrice }}</strong>
+        </p>
+        <p class="precart__name" *ngIf="cartItemsSize > 1">
+          {{ cartItemsSize }} productos en tu carrito
+          <strong>${{ totalPrice }}</strong>
         </p>
         <p class="precart__title">!Envio gratis!</p>
       </div>
       <img
-        src="https://falabella.scene7.com/is/image/FalabellaCO/55466201_1"
-        alt="Product"
+        [src]="lastCartProduct.image"
+        [alt]="lastCartProduct.title"
         class="precart__img precart__img--size"
       />
     </div>
   </div>
-  <button class="precart__btn">Ver Carrito</button>
+  <button class="precart__btn" (click)="goToCart()">Ver Carrito</button>
 </div>

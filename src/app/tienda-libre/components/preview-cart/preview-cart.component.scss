@@ -67,6 +67,7 @@
 }
 
 .precart__btn {
+  cursor: pointer;
   width: 120px;
   padding: 10px 15px;
   border-radius: var(--border-radius-sm);
@@ -74,4 +75,9 @@
   color: var(--white);
   font: var(--body-14regular);
   border: none;
+  transition: var(--basic-transition);
+
+  &:hover {
+    background-color: var(--blue-dark);
+  }
 }

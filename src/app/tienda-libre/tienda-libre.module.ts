@@ -3,7 +3,10 @@ import { CommonModule } from "@angular/common"
 
 import { DragScrollModule } from "ngx-drag-scroll"
 
+import { FormsModule } from "@angular/forms"
+
 import { MatSnackBarModule } from "@angular/material/snack-bar"
+import { CdkAccordionModule } from "@angular/cdk/accordion"
 
 import { ComponentsModule } from "./components/components.module"
 import { MaterialModule } from "../shared/material/material.module"
@@ -20,6 +23,10 @@ import { ShoppingCartComponent } from "./pages/shopping-cart/shopping-cart.compo
 import { CarouselItemComponent } from "../shared/carousel-item/carousel-item.component"
 import { RecordItemComponent } from "../shared/record-item/record-item.component"
 import { RecordComponent } from "./pages/record/record.component"
+import { ContactFormComponent } from "./pages/support/components/contact-form/contact-form.component"
+import { FaqItemComponent } from "./pages/support/components/faq-item/faq-item.component"
+import { SupportComponent } from "./pages/support/support.component"
+import { FaqFilterPipe } from "../pipes/faq-filter.pipe"
 
 @NgModule({
   declarations: [
@@ -27,7 +34,9 @@ import { RecordComponent } from "./pages/record/record.component"
     ProductComponent,
     ShoppingCartComponent,
     RecordComponent,
+    SupportComponent,
   ],
+  exports: [HomeComponent],
   imports: [
     CommonModule,
     ComponentsModule,
@@ -42,7 +51,11 @@ import { RecordComponent } from "./pages/record/record.component"
     RecordItemComponent,
     DragScrollModule,
     CarouselItemComponent,
+    ContactFormComponent,
+    FaqItemComponent,
+    CdkAccordionModule,
+    FaqFilterPipe,
+    FormsModule,
   ],
-  exports: [HomeComponent],
 })
 export class TiendaLibreModule {}
